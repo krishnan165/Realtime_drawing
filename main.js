@@ -1,3 +1,10 @@
+noseX=0;
+noseY=0;
+
+leftwristx=0;
+rightwristx=0;
+difference=0;
+
 function preload()
 {
 
@@ -20,6 +27,18 @@ function gotPoses(results)
     if(results.length>0)
     {
        console.log(results);
+       noseX=results[0].pose.nose.x;
+       noseY=results[0].pose.nose.y;
+       console.log("Nose X="+noseX);
+       console.log("Nose Y="+noseY);
+ 
+       rightwristx=results[0].pose.rightWrist.x;
+       leftwristx=results[0].pose.leftWrist.y;
+       difference=floor(leftwristx-rightwristx);
+       
+       console.log("Left Wrist="+leftwristx);
+       console.log("Right Wrist="+rightwristx);
+       console.log("Difference="+difference);
     }
 }
 
@@ -31,4 +50,10 @@ function modelLoaded()
 function draw()
 {
     background("cyan");
+    fill("crimson");
+    stroke("#ff7369");
+    square(noseX,noseY,diffenence);    
+    
+    document.getElementById("output_span").innerHTML="Length of the square: "+diffenence+"px";
+    
 }
