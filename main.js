@@ -52,8 +52,8 @@ function draw()
     background("cyan");
     fill("crimson");
     stroke("#ff7369");
-    square(noseX,noseY,diffenence);    
+    square(noseX,noseY,difference);    
     
-    document.getElementById("output_span").innerHTML="Length of the square: "+diffenence+"px";
+    document.getElementById("output_span").innerHTML="Length of the square: "+difference+"px";
     
 }
